@@ -1,0 +1,81 @@
+:root {
+  --bg: #1b1d23;
+  --panel: #262932;
+  --text: #e8e6e1;
+  --muted: #9aa0ab;
+  --accent: #f0a53a;
+  --danger: #e5484d;
+  --ok: #46a758;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 16px;
+}
+
+header { width: 100%; max-width: 760px; padding: 12px 0 8px; }
+h1 { margin: 0 0 8px; font-size: 22px; letter-spacing: .02em; }
+h1 .hex { color: var(--accent); font-family: ui-monospace, monospace; }
+
+.controls, .status { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.status { margin-top: 8px; gap: 16px; font-family: ui-monospace, monospace; }
+
+button, select {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid #3a3e4a;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font: inherit;
+  cursor: pointer;
+}
+button:hover, select:hover { border-color: var(--accent); }
+button.active { background: var(--accent); color: #1b1d23; border-color: var(--accent); }
+button:disabled { opacity: .35; cursor: default; }
+
+#lives { font-size: 18px; letter-spacing: 2px; }
+#stats { color: var(--muted); }
+
+main { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 760px; }
+#board { width: 100%; display: flex; justify-content: center; touch-action: manipulation; }
+#board canvas { border-radius: 6px; display: block; }
+
+#message { min-height: 2.8em; margin: 8px 0; text-align: center; max-width: 720px; }
+#message.danger { color: var(--danger); }
+#message.ok { color: var(--ok); }
+#message.hint { color: var(--accent); }
+#message small { display: block; color: var(--muted); }
+
+#keypad {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+  width: 100%;
+  max-width: 560px;
+  margin-bottom: 12px;
+}
+#keypad button {
+  padding: 8px 0;
+  font: 600 18px ui-monospace, monospace;
+  position: relative;
+}
+#keypad button .left {
+  position: absolute; right: 4px; bottom: 1px;
+  font-size: 10px; color: var(--muted); font-weight: 400;
+}
+#keypad button.wide { grid-column: span 4; font: inherit; }
+
+footer { max-width: 760px; color: var(--muted); font-size: 13px; padding: 8px 0 24px; }
+kbd {
+  background: var(--panel); border: 1px solid #3a3e4a; border-radius: 4px;
+  padding: 0 4px; font-family: ui-monospace, monospace; font-size: 12px;
+}

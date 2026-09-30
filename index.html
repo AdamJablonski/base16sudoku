@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mine Sudoku 16</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Mine Sudoku <span class="hex">0x10</span></h1>
+    <div class="controls">
+      <select id="difficulty" aria-label="Difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium" selected>Medium</option>
+        <option value="hard">Hard</option>
+        <option value="expert">Expert</option>
+      </select>
+      <button id="newGame">New game</button>
+      <button id="hint" title="Hint (H)">Hint</button>
+      <button id="notes" title="Pencil notes (Space / N)">Notes: off</button>
+    </div>
+    <div class="status">
+      <span id="lives" title="Mines you can survive"></span>
+      <span id="timer">00:00</span>
+      <span id="stats"></span>
+    </div>
+  </header>
+
+  <main>
+    <div id="board"></div>
+    <div id="message" role="status"></div>
+    <div id="keypad"></div>
+  </main>
+
+  <footer>
+    Fill the 16×16 grid with 0–F so every row, column and 4×4 box holds each digit once.
+    Every empty cell hides mines under 15 of its 16 digits — enter a wrong one and it explodes.
+    Keys: <kbd>0</kbd>–<kbd>9</kbd> <kbd>A</kbd>–<kbd>F</kbd>, arrows to move,
+    <kbd>Space</kbd>/<kbd>N</kbd> notes, <kbd>Shift</kbd>+digit quick note, <kbd>H</kbd> hint,
+    <kbd>Del</kbd> clear notes. <span id="seed"></span>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.1/lib/p5.min.js"></script>
+  <script>window.p5 || document.write('<script src="https://unpkg.com/p5@1.11.1/lib/p5.min.js"><\/script>')</script>
+  <script src="sudoku16.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

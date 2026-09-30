@@ -1,0 +1,10 @@
+{
+  "name": "base16sudoku",
+  "version": "1.0.0",
+  "description": "Minesweeper-flavoured 16x16 hexadecimal Sudoku for the browser (p5.js)",
+  "private": true,
+  "scripts": {
+    "test": "node test/engine.test.js"
+  },
+  "license": "MIT"
+}
